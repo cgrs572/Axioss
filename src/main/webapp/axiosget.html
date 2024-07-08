@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script src="js/axios-0.18.0.js"></script>
+        <script>
+            axios.get("http://localhost:8080/AxiosDemo/axiosGetServlet?username=zhangsan").then(function (resp){
+                // resp.data获取服务端回响数据
+                alert(resp.data);
+            })
+        </script>
+    </body>
+</html>

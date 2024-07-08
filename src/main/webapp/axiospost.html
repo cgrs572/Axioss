@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script src="js/axios-0.18.0.js"></script>
+        <!--<script>
+            var jsObject = {name:"zhangsan"};
+            axios({
+                // 请求方式
+                method:"post",
+                // 请求的资源路径
+                url:"http://localhost:8080/AxiosDemo/axiosPostServlet",
+                // 请求参数
+                data:JSON.stringify(jsObject)
+            }).then(function (resp){
+                // resp.data获取服务端回响数据
+                alert(resp.data);
+            })
+        </script>-->
+        <script>
+            var jsObject = {name:"zhangsan"};
+            axios.post("http://localhost:8080/AxiosDemo/axiosPostServlet", JSON.stringify(jsObject)).then(function (resp){
+                // resp.data获取服务端回响数据
+                alert(resp.data);
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script>
+            //1 定义JSON
+            var jsonStr = '{"name":"zhangsan", "age":23, "addr":["北京", "上海", "西安"]}';
+            //2 将JSON字符串转换为JS对象
+            let jsObject = JSON.parse(jsonStr);
+            //3 获取JS对象中指定键的值
+            let name = jsObject.name;
+            alert(name);
+        </script>
+    </body>
+</html>

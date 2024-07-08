@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace：名称空间
+-->
+<mapper namespace="at.guigu.mapper.BrandMapper">
+    <!--结果映射-->
+    <resultMap id="brandResultMap" type="brand">
+        <!--由于id为主键，且数据库中的字段名和对应结果映射的目标类中的属性名一样，所以此处不需要主键映射，只需进行非主键映射即可-->
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+
+    <!--
+        id：为sql语句的唯一标识
+        resultType：为对应sql语句执行完毕后返回结果的类型
+    -->
+    <!--查询所有品牌-->
+    <select id="selectAll" resultMap="brandResultMap">
+        select * from tb_brand;
+    </select>
+    <!--添加品牌-->
+    <insert id="add">
+        insert into tb_brand values (null, #{brandName}, #{companyName}, #{ordered}, #{description}, #{status});
+    </insert>
+    <!--修改——回显数据：根据id查询-->
+    <select id="selectById" resultMap="brandResultMap">
+        select * from tb_brand where id = #{id};
+    </select>
+
+    <!--修改——修改数据-->
+    <update id="update">
+        update tb_brand
+        set brand_name=#{brandName},
+            company_name=#{companyName},
+            ordered=#{ordered},
+            description=#{description},
+            status=#{status}
+        where id=#{id};
+    </update>
+</mapper>
